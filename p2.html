@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Special 💖</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6f2;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: red;
+            margin-top: 20px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: pink;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .tab:hover {
+            background-color: darkred;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+            font-size: 1.2em;
+        }
+        .active {
+            display: block;
+        }
+        /* Image Gallery */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 250px;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .caption {
+            font-size: 1em;
+            color: #333;
+            margin-top: 5px;
+        }
+        /* Heart Animation */
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 2em;
+            animation: float 5s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💖 Happy Valentine's Day! 💖</h1>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab" onclick="showTab('dates')">🌟 Dates</button>
+        <button class="tab" onclick="showTab('flowers')">🌹 Flowers</button>
+        <button class="tab" onclick="showTab('dinners')">🍽️ Dinners</button>
+        <button class="tab" onclick="showTab('apology')">💌 An Apology</button>
+    </div>
+
+    <!-- Content Sections -->
+    <div id="dates" class="content active">
+        <h2>🌟 Romantic Date Ideas</h2>
+        <p>Here are some date ideas to make Valentine's Day special!</p>
+        <div class="gallery">
+            <div>
+                <img src="date1.jpg" alt="Romantic Walk">
+                <p class="caption">A romantic walk under the stars ✨</p>
+            </div>
+            <div>
+                <img src="date2.jpg" alt="Picnic">
+                <p class="caption">Cozy picnic in the park 🧺</p>
+            </div>
+            <div>
+                <img src="date3.jpg" alt="Movie Night">
+                <p class="caption">Movie night with popcorn 🍿</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="flowers" class="content">
+        <h2>🌹 Choosing the Right Flowers</h2>
+        <p>Flowers have different meanings. Choose wisely! 🌸</p>
+        <div class="gallery">
+            <div>
+                <img src="rose.jpg" alt="Roses">
+                <p class="caption">Roses symbolize deep love ❤️</p>
+            </div>
+            <div>
+                <img src="lily.jpg" alt="Lilies">
+                <p class="caption">Lilies represent admiration 💐</p>
+            </div>
+            <div>
+                <img src="tulip.jpg" alt="Tulips">
+                <p class="caption">Tulips are perfect for new love 💛</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="dinners" class="content">
+        <h2>🍽️ Special Dinner Ideas</h2>
+        <p>Celebrate with a delicious meal! 🍷</p>
+        <div class="gallery">
+            <div>
+                <img src="dinner1.jpg" alt="Candlelight Dinner">
+                <p class="caption">Candlelight dinner at home 🕯️</p>
+            </div>
+            <div>
+                <img src="dinner2.jpg" alt="Fancy Restaurant">
+                <p class="caption">Fine dining with a romantic view 🌆</p>
+            </div>
+            <div>
+                <img src="dinner3.jpg" alt="Breakfast in Bed">
+                <p class="caption">Surprise breakfast in bed 🥞</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="apology" class="content">
+        <h2>💌 A Heartfelt Apology</h2>
+        <p>I'm truly sorry. I never meant to hurt you. 💔</p>
+        <p>You mean the world to me, and I cherish every moment we share. 💖</p>
+        <p>Let me make it up to you with love and care. ❤️</p>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            let contents = document.querySelectorAll(".content");
+            contents.forEach(content => content.classList.remove("active"));
+
+            document.getElementById(tabId).classList.add("active");
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.classList.add("heart");
+            document.body.appendChild(heart);
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
